@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zxx"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ashion | Login</title>
+</head>
+
+<body>
+<section layout:fragment="content">
+
+    <form action="/loginn"  method="post">
+        <input placeholder="username" name="username"/>
+        <input placeholder="password" name="password" type="password"/>
+
+        <button type="submit">Login</button>
+    </form>
+</section>
+</body>
+
+</html>
