@@ -30,6 +30,8 @@ public class Product {
 @ManyToOne
     Brand brand;
 
+
+
 @OneToMany(mappedBy = "product")
     List<ProductSize>productSizes = new ArrayList<>();
 
