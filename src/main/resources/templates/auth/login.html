@@ -1,125 +1,207 @@
-```html
 <!DOCTYPE html>
-<html lang="zxx"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}">
-
+<html lang="az" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Ashion | Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create an Account</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #3f5fc9);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .register-container {
+            width: 70%;
+            max-width: 1100px;
+            min-height: 590px;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .left-side {
+            width: 48%;
+        }
+
+        .right-side {
+            width: 52%;
+            padding: 45px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right-side h2 {
+            text-align: center;
+            font-size: 26px;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+            width: 100%;
+        }
+
+        .form-control {
+            width: 100%;
+            height: 48px;
+            border: 1px solid #e1e1e1;
+            border-radius: 25px;
+            padding: 0 16px;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: #667eea;
+        }
+
+        .register-btn {
+            width: 100%;
+            height: 46px;
+            border: none;
+            border-radius: 25px;
+            background: #667eea;
+            color: white;
+            cursor: pointer;
+            font-size: 13px;
+            margin-top: 2px;
+        }
+
+        .register-btn:hover {
+            background: #536fd6;
+        }
+
+        .divider {
+            height: 1px;
+            background: #eeeeee;
+            margin: 15px 0;
+        }
+
+        .social-btn {
+            width: 100%;
+            height: 43px;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-size: 13px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .google {
+            background: #e85b4d;
+        }
+
+        .facebook {
+            background: #536db3;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .links a {
+            color: #8294cf;
+            text-decoration: none;
+            font-size: 13px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 800px) {
+            .register-container {
+                width: 90%;
+            }
+
+            .left-side {
+                display: none;
+            }
+
+            .right-side {
+                width: 100%;
+                padding: 35px 25px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<section layout:fragment="content">
+<div class="register-container">
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-6 col-md-8">
+    <div class="left-side"></div>
 
-                <div class="login__form" style="padding: 80px 0;">
+    <div class="right-side">
 
-                    <div class="section-title text-center">
-                        <h2>Welcome Back</h2>
-                        <p>Login to your account</p>
-                    </div>
+        <h2>Welcome Back!</h2>
 
-                    <form action="/loginn" method="post">
+        <form th:action="@{/login}" method="POST">
 
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email"
-                                   id="email"
-                                   name="email"
-                                   class="form-control"
-                                   placeholder="Enter Email Address"
-                                   required>
-                        </div>
-
-                        <br>
-
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password"
-                                   id="password"
-                                   name="password"
-                                   class="form-control"
-                                   placeholder="Enter Password"
-                                   required>
-                        </div>
-
-                        <br>
-
-                        <div class="d-flex justify-content-between align-items-center">
-
-                            <div>
-                                <input type="checkbox"
-                                       id="rememberMe"
-                                       name="remember-me">
-
-                                <label for="rememberMe">
-                                    Remember Me
-                                </label>
-                            </div>
-
-                            <a href="#">
-                                Forgot Password?
-                            </a>
-
-                        </div>
-
-                        <br>
-
-                        <button type="submit"
-                                class="site-btn"
-                                style="width: 100%;">
-                            Login
-                        </button>
-
-                    </form>
-
-                    <div class="text-center" style="margin-top: 30px;">
-
-                        <p>Or continue with</p>
-
-                        <div>
-
-                            <a href="#"
-                               class="site-btn"
-                               style="margin-right: 10px;">
-                                Google
-                            </a>
-
-                            <a href="#"
-                               class="site-btn">
-                                Facebook
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="text-center" style="margin-top: 30px;">
-
-                        <p>
-                            Don't have an account?
-                            <a href="#">
-                                Create an Account
-                            </a>
-                        </p>
-
-                    </div>
-
-                </div>
-
+            <div class="form-group">
+                <input
+                        type="email"
+                        name="email"
+                        class="form-control"
+                        placeholder="Enter Email Address"
+                        required>
             </div>
+
+            <div class="form-group">
+                <input
+                        type="password"
+                        name="password"
+                        class="form-control"
+                        placeholder="Password"
+                        required>
+            </div>
+
+            <button type="submit" class="register-btn">
+                Login
+            </button>
+
+        </form>
+
+        <div class="divider"></div>
+
+        <button type="button" class="social-btn google">
+            G&nbsp;&nbsp; Login with Google
+        </button>
+
+        <button type="button" class="social-btn facebook">
+            f&nbsp;&nbsp; Login with Facebook
+        </button>
+
+        <div class="links">
+            <a href="#">Forgot Password?</a>
+            <a th:href="@{/register}">
+                Create an Account
+            </a>
         </div>
+
     </div>
 
-</section>
+</div>
 
 </body>
-
 </html>
-```
