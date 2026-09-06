@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="az" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create an Account</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #3f5fc9);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .register-container {
+            width: 70%;
+            max-width: 1100px;
+            min-height: 590px;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .left-side {
+            width: 48%;
+        }
+
+        .right-side {
+            width: 52%;
+            padding: 45px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right-side h2 {
+            text-align: center;
+            font-size: 26px;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 28px;
+        }
+
+        .row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .row .form-group {
+            width: 50%;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-control {
+            width: 100%;
+            height: 48px;
+            border: 1px solid #e1e1e1;
+            border-radius: 25px;
+            padding: 0 16px;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: #667eea;
+        }
+
+        .register-btn {
+            width: 100%;
+            height: 46px;
+            border: none;
+            border-radius: 25px;
+            background: #667eea;
+            color: white;
+            cursor: pointer;
+            font-size: 13px;
+            margin-top: 2px;
+        }
+
+        .register-btn:hover {
+            background: #536fd6;
+        }
+
+        .divider {
+            height: 1px;
+            background: #eeeeee;
+            margin: 15px 0;
+        }
+
+        .social-btn {
+            width: 100%;
+            height: 43px;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-size: 13px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .google {
+            background: #e85b4d;
+        }
+
+        .facebook {
+            background: #536db3;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .links a {
+            color: #8294cf;
+            text-decoration: none;
+            font-size: 13px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 800px) {
+            .register-container {
+                width: 90%;
+            }
+
+            .left-side {
+                display: none;
+            }
+
+            .right-side {
+                width: 100%;
+                padding: 35px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="register-container">
+
+    <div class="left-side"></div>
+
+    <div class="right-side">
+
+        <h2>Create an Account!</h2>
+
+        <form th:action="@{/register}" method="POST">
+
+            <div class="row">
+
+                <div class="form-group">
+                    <input
+                            type="text"
+                            name="name"
+                            class="form-control"
+                            placeholder="First Name"
+                            required>
+                </div>
+
+                <div class="form-group">
+                    <input
+                            type="text"
+                            name="surname"
+                            class="form-control"
+                            placeholder="Last Name"
+                            required>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <input
+                        type="email"
+                        name="email"
+                        class="form-control"
+                        placeholder="Email Address"
+                        required>
+            </div>
+
+            <div class="row">
+
+                <div class="form-group">
+                    <input
+                            type="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="Password"
+                            required>
+                </div>
+
+                <div class="form-group">
+                    <input
+                            type="password"
+                            name="repeatPassword"
+                            class="form-control"
+                            placeholder="Repeat Password"
+                            required>
+                </div>
+
+            </div>
+
+            <button type="submit" class="register-btn">
+                Register Account
+            </button>
+
+        </form>
+
+        <div class="divider"></div>
+
+        <button type="button" class="social-btn google">
+            G&nbsp;&nbsp; Register with Google
+        </button>
+
+        <button type="button" class="social-btn facebook">
+            f&nbsp;&nbsp; Register with Facebook
+        </button>
+
+        <div class="links">
+            <a href="#">Forgot Password?</a>
+            <a th:href="@{/login}">
+                Already have an account? Login!
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
