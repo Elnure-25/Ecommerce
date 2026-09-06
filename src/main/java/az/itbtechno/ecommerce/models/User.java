@@ -57,6 +57,7 @@ public class User implements UserDetails {
     String surname;
     String email;
     String password;
+    String confirmationToken;
     boolean accountNonExpired;
     boolean accountNonLocked;
     boolean credentialsNonExpired;
@@ -65,6 +66,6 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     List<Cart> carts = new ArrayList<>();
 
-    @ManyToMany
-    List<Role>roles= new ArrayList<>();
+    @ManyToMany(fetch = FetchType.EAGER)
+    List<Role> roles = new ArrayList<>();
 }

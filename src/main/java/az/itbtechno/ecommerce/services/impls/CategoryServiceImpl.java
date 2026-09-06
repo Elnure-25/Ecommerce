@@ -17,13 +17,11 @@ public class CategoryServiceImpl implements CategoryService {
 
     private final CategoryRepository categoryRepository;
     private final ModelMapper modelMapper;
-    private static final String TOPIC = "test-topic";
-    private final KafkaTemplate<String, String> kafkaTemplate;
+
 
     @Override
     public List<CategoryHomeDTO> categoryList() {
-        kafkaTemplate.send(TOPIC, "Salam mesaji gordunse her sey isleyir");
-        System.out.println("Message sent to Kafka topic '" + TOPIC + "': Salam mesaji gordunse her sey isleyir");
+
         List<Category> categories = categoryRepository.findAll();
         List<CategoryHomeDTO> categoryHomeDTOList = categories.stream()
                 .map(category -> modelMapper.map(category, CategoryHomeDTO.class))
