@@ -26,13 +26,13 @@ public class SecurityConfig {
 
         http.csrf(c -> c.disable())
                 .authorizeHttpRequests(auth -> {
-                    auth.requestMatchers("/admin/**").authenticated();
+                    auth.requestMatchers("/dashboard/**").authenticated();
                     auth.anyRequest().permitAll();
                 })
                 .formLogin(form -> form
                         .loginPage("/login")
                         .loginProcessingUrl("/login")
-                        .defaultSuccessUrl("/", true)
+                        .defaultSuccessUrl("/dashboard/category", true)
                         .permitAll()
                 );
 

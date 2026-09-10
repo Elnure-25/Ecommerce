@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SB Admin 2</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fc;
+        }
+
+        .admin-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* SIDEBAR */
+
+        .sidebar {
+            width: 230px;
+            background: #4e73df;
+            color: white;
+            min-height: 100vh;
+        }
+
+        .sidebar .logo {
+            font-size: 22px;
+            font-weight: bold;
+            padding: 25px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            padding: 15px 20px;
+        }
+
+        .sidebar li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        .sidebar li:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        /* MAIN */
+
+        .main-content {
+            flex: 1;
+        }
+
+        /* NAVBAR */
+
+        .topbar {
+            height: 70px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+        }
+
+        .search-box {
+            width: 350px;
+        }
+
+        /* CONTENT */
+
+        .content {
+            padding: 30px;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+            color: #888;
+        }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="admin-wrapper">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-face-smile"></i>
+            SB ADMIN
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="/dashboard">
+                    <i class="fa-solid fa-gauge"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="/dashboard/category">
+                    <i class="fa-solid fa-list"></i>
+                    Category
+                </a>
+            </li>
+
+
+        </ul>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <div class="main-content">
+
+        <!-- TOPBAR -->
+
+        <div class="topbar">
+
+            <form>
+                <input type="text"
+                       class="form-control search-box"
+                       placeholder="Search for...">
+            </form>
+
+            <div>
+                <i class="fa-solid fa-bell mr-4"></i>
+                <i class="fa-solid fa-envelope mr-4"></i>
+                Admin
+            </div>
+
+        </div>
+
+
+        <!-- PAGE CONTENT -->
+
+        <main class="content">
+
+            <section layout:fragment="content">
+            </section>
+
+        </main>
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+            Copyright © Ecommerce 2026
+        </footer>
+
+    </div>
+
+</div>
+
+</body>
+</html>

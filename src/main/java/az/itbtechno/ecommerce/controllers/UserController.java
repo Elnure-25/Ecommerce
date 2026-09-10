@@ -1,6 +1,6 @@
 package az.itbtechno.ecommerce.controllers;
 
-import az.itbtechno.ecommerce.dto.request.user.RegisterDto;
+import az.itbtechno.ecommerce.dto.auth.RegisterDTO;
 import az.itbtechno.ecommerce.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -20,8 +20,15 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String register(@ModelAttribute RegisterDto registerDto) {
-        userService.registerUser(registerDto);
+    public String register(@ModelAttribute RegisterDTO registerDTO) {
+        userService.registerUser(registerDTO);
+        return "redirect:/login";
+    }
+
+    @GetMapping("/user/confirm")
+    public String confirm(String email, String token) {
+        boolean confirmUser = userService.confirmUser(email, token);
+        System.out.println("Salam");
         return "redirect:/login";
     }
 }

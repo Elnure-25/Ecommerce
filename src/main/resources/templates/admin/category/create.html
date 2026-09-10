@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{admin/layout}">
+
+<div layout:fragment="content">
+
+    <div class="page-title">
+        Create Category
+    </div>
+
+    <div class="card shadow">
+
+        <div class="card-header">
+            Create Category
+        </div>
+
+        <div class="card-body">
+
+            <form th:action="@{/dashboard/category/create}"
+                  th:object="${categoryCreateDTO}"
+                  method="post">
+
+                <div class="form-group">
+                    <label>Category Name</label>
+
+                    <input type="text"
+                           th:field="*{name}"
+                           class="form-control"
+                           placeholder="Enter category name">
+
+                    <p th:if="${#fields.hasErrors('name')}"
+                       th:errors="*{name}"
+                       class="text-danger small mt-1">
+                    </p>
+                </div>
+
+                <button type="submit"
+                        class="btn btn-primary">
+                    Create
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</html>
+```

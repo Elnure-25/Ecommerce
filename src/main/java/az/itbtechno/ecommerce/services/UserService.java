@@ -1,8 +1,10 @@
 package az.itbtechno.ecommerce.services;
 
-import az.itbtechno.ecommerce.dto.request.user.RegisterDto;
+import az.itbtechno.ecommerce.dto.auth.RegisterDTO;
 
 public interface UserService {
 
-    void registerUser(RegisterDto registerDto);
+    void registerUser(RegisterDTO registerDTO);
+
+    boolean confirmUser(String email, String token);
 }

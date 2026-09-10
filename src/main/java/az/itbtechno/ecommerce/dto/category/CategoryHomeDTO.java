@@ -1,4 +1,4 @@
-package az.itbtechno.ecommerce.dto.response.category;
+package az.itbtechno.ecommerce.dto.category;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
