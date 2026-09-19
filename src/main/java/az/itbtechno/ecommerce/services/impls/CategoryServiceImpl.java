@@ -1,9 +1,6 @@
 package az.itbtechno.ecommerce.services.impls;
 
-import az.itbtechno.ecommerce.dto.category.CategoryCreateDTO;
-import az.itbtechno.ecommerce.dto.category.CategoryDashboardDTO;
-import az.itbtechno.ecommerce.dto.category.CategoryHomeDTO;
-import az.itbtechno.ecommerce.dto.category.CategoryUpdateDTO;
+import az.itbtechno.ecommerce.dto.category.*;
 import az.itbtechno.ecommerce.models.Category;
 import az.itbtechno.ecommerce.repostories.CategoryRepository;
 import az.itbtechno.ecommerce.services.CategoryService;
@@ -20,14 +17,12 @@ public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
     private final ModelMapper modelMapper;
 
-
     @Override
     public List<CategoryHomeDTO> categoryList() {
 
         List<Category> categories = categoryRepository.findAll();
-        List<CategoryHomeDTO> categoryHomeDTOList = categories.stream()
-                .map(category -> modelMapper.map(category, CategoryHomeDTO.class))
-                .toList();
+
+        List<CategoryHomeDTO> categoryHomeDTOList = categories.stream().map(category -> modelMapper.map(category,CategoryHomeDTO.class)).toList();
 
         return categoryHomeDTOList;
     }
@@ -39,43 +34,69 @@ public class CategoryServiceImpl implements CategoryService {
 
         if (!categories.isEmpty()) {
 
-            List<CategoryDashboardDTO> categoryDashboardDTOList = categories
-                    .stream()
-                    .map(category -> modelMapper.map(category, CategoryDashboardDTO.class))
+            return categories.stream()
+                    .map(category -> modelMapper.map(
+                            category,
+                            CategoryDashboardDTO.class
+                    ))
                     .toList();
-
-            return categoryDashboardDTOList;
         }
 
         return List.of();
     }
 
     @Override
-    public void createCategory(CategoryCreateDTO categoryCreateDTO) {
+    public void createCategory(
+            CategoryCreateDTO categoryCreateDTO) {
 
-        Category category= new Category();
+        Category category = new Category();
+
         category.setName(categoryCreateDTO.getName());
-        categoryRepository.save(category);
 
+        categoryRepository.save(category);
     }
 
     @Override
     public CategoryUpdateDTO getUpdatedCategory(Long id) {
-       Category findCategory= categoryRepository.findById(id).orElseThrow();
-        CategoryUpdateDTO category=modelMapper.map(findCategory,CategoryUpdateDTO.class);
 
-       return category;
+        Category findCategory =
+                categoryRepository.findById(id)
+                        .orElseThrow();
+
+        return modelMapper.map(
+                findCategory,
+                CategoryUpdateDTO.class
+        );
     }
 
     @Override
-    public void UpdatedCategory(Long id,CategoryUpdateDTO categoryUpdateDTO) {
-        Category findCategory = categoryRepository.findById(id).orElseThrow();
-        findCategory.setName(categoryUpdateDTO.getName());
+    public void UpdatedCategory(
+            Long id,
+            CategoryUpdateDTO categoryUpdateDTO) {
+
+        Category findCategory =
+                categoryRepository.findById(id)
+                        .orElseThrow();
+
+        findCategory.setName(
+                categoryUpdateDTO.getName()
+        );
+
         categoryRepository.save(findCategory);
     }
 
     @Override
     public void deleteCategory(Long id) {
+
         categoryRepository.deleteById(id);
+    }
+
+    @Override
+    public List<CategoryDTO> getCategoryList() {
+        List<Category> categories = categoryRepository.findAll();
+
+        List<CategoryDTO> categoryDTOS = categories.stream().map(category -> modelMapper.map(category,CategoryDTO.class)).toList();
+
+        return categoryDTOS;
     }
 }

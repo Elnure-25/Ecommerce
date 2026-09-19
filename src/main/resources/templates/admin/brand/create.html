@@ -7,23 +7,22 @@
 <div layout:fragment="content">
 
     <div class="page-title">
-        Update Category
+        Create Category
     </div>
 
     <div class="card shadow">
 
         <div class="card-header">
-            Update Category
+            Create Category
         </div>
 
         <div class="card-body">
 
-            <form th:action="@{/dashboard/category/update/{id}(id=${categoryId})}"
-                  th:object="${categoryUpdateDTO}"
+            <form th:action="@{/dashboard/brand/create}"
+                  th:object="${brandCreateDTO}"
                   method="post">
 
                 <div class="form-group">
-
                     <label>Category Name</label>
 
                     <input type="text"
@@ -35,18 +34,12 @@
                        th:errors="*{name}"
                        class="text-danger small mt-1">
                     </p>
-
                 </div>
 
                 <button type="submit"
                         class="btn btn-primary">
-                    Update
+                    Create
                 </button>
-
-                <a th:href="@{/dashboard/category}"
-                   class="btn btn-secondary">
-                    Cancel
-                </a>
 
             </form>
 

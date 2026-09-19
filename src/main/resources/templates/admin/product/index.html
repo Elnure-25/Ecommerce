@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+
+<div layout:fragment="content" class="container-fluid">
+
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3 d-flex justify-content-between align-items-center">
+
+            <h6 class="m-0 font-weight-bold text-primary">
+                Products
+            </h6>
+
+            <a th:href="@{/dashboard/product/create}"
+               class="btn btn-primary">
+                Create Product
+            </a>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <table class="table table-bordered">
+
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Discount Price</th>
+                        <th>Category</th>
+                        <th>Brand</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                    <tr th:each="item : ${product.data}">
+
+                        <td th:text="${item.id}">
+                            1
+                        </td>
+
+                        <td th:text="${item.name}">
+                            Product name
+                        </td>
+
+                        <td th:text="${item.quantity}">
+                            10
+                        </td>
+
+                        <td th:text="${item.price}">
+                            100
+                        </td>
+
+                        <td th:text="${item.discountPrice}">
+                            90
+                        </td>
+
+                        <td th:text="${item.category != null ? item.category.name : 'No Category'}">
+                            Category
+                        </td>
+
+                        <td th:text="${item.brand != null ? item.brand.name : 'No Brand'}">
+                            Brand
+                        </td>
+
+                        <td>
+
+                            <a th:href="@{/dashboard/product/update/{id}(id=${item.id})}"
+                               class="btn btn-warning btn-sm">
+                                Update
+                            </a>
+
+                            <a th:href="@{/dashboard/product/delete/{id}(id=${item.id})}"
+                               class="btn btn-danger btn-sm">
+                                Delete
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</html>

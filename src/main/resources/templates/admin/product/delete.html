@@ -7,23 +7,21 @@
 <div layout:fragment="content">
 
     <div class="page-title">
-        Delete Category
+        Delete Product
     </div>
 
     <div class="card shadow">
 
         <div class="card-header">
-            Delete Category
+            Delete Product
         </div>
 
         <div class="card-body">
 
-            <form th:action="@{/dashboard/category/delete/{id}(id=${categoryId})}"
+            <form th:action="@{/dashboard/product/delete/{id}(id=${productId})}"
                   method="post">
 
                 <div class="form-group">
-
-                    <label>Category Name</label>
 
                     <div class="text-center mb-4">
 
@@ -36,15 +34,17 @@
                         </h4>
 
                         <p class="text-muted">
-                            Are you sure you want to delete this Category?
+                            Are you sure you want to delete this Product?
                             <br>
                             This action cannot be undone.
                         </p>
 
                     </div>
 
+                    <label>Product Name</label>
+
                     <input type="text"
-                           th:value="${categoryUpdateDTO.name}"
+                           th:value="${productUpdateDTO.name}"
                            class="form-control"
                            disabled>
 
@@ -55,7 +55,7 @@
                     Delete
                 </button>
 
-                <a th:href="@{/dashboard/category}"
+                <a th:href="@{/dashboard/product}"
                    class="btn btn-secondary">
                     Cancel
                 </a>

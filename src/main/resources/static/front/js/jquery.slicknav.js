@@ -19,7 +19,7 @@
             removeIds: true,
             removeClasses: false,
             removeStyles: false,
-			brand: '',
+			Category: '',
             animations: 'jquery',
             init: function () {},
             beforeOpen: function () {},
@@ -113,9 +113,9 @@
         // create menu bar
         $this.mobileNav.attr('class', prefix + '_nav');
         menuBar = $('<div class="' + prefix + '_menu"></div>');
-		if (settings.brand !== '') {
-			var brand = $('<div class="' + prefix + '_brand">'+settings.brand+'</div>');
-			$(menuBar).append(brand);
+		if (settings.Category !== '') {
+			var Category = $('<div class="' + prefix + '_Category">'+settings.Category+'</div>');
+			$(menuBar).append(Category);
 		}
         $this.btn = $(
             ['<' + settings.parentTag + ' aria-haspopup="true" role="button" tabindex="0" class="' + prefix + '_btn ' + prefix + '_collapsed">',

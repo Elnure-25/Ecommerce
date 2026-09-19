@@ -18,8 +18,8 @@
 
         <div class="card-body">
 
-            <form th:action="@{/dashboard/category/update/{id}(id=${categoryId})}"
-                  th:object="${categoryUpdateDTO}"
+            <form th:action="@{/dashboard/brand/update/{id}(id=${brandId})}"
+                  th:object="${brandUpdateDTO}"
                   method="post">
 
                 <div class="form-group">
@@ -43,7 +43,7 @@
                     Update
                 </button>
 
-                <a th:href="@{/dashboard/category}"
+                <a th:href="@{/dashboard/brand}"
                    class="btn btn-secondary">
                     Cancel
                 </a>

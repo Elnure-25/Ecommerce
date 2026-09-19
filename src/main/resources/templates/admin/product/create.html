@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+
+<div layout:fragment="content">
+
+    <div class="page-title">
+        Create Product
+    </div>
+
+    <div class="card shadow">
+
+        <div class="card-header">
+            Create Product
+        </div>
+
+        <div class="card-body">
+
+            <form th:action="@{/dashboard/product/create}"
+                  th:object="${productCreateDTO}"
+                  method="post">
+
+                <!-- Product Name -->
+                <div class="form-group">
+                    <label>Product Name</label>
+
+                    <input type="text"
+                           th:field="*{name}"
+                           class="form-control"
+                           placeholder="Enter Product name">
+
+                    <p th:if="${#fields.hasErrors('name')}"
+                       th:errors="*{name}"
+                       class="text-danger small mt-1">
+                    </p>
+                </div>
+
+
+                <!-- Product Quantity -->
+                <div class="form-group">
+                    <label>Product quantity</label>
+
+                    <input type="number"
+                           th:field="*{quantity}"
+                           class="form-control"
+                           placeholder="Enter Product quantity">
+
+                    <p th:if="${#fields.hasErrors('quantity')}"
+                       th:errors="*{quantity}"
+                       class="text-danger small mt-1">
+                    </p>
+                </div>
+
+
+                <!-- Product Price -->
+                <div class="form-group">
+                    <label>Product price</label>
+
+                    <input type="number"
+                           th:field="*{price}"
+                           class="form-control"
+                           placeholder="Enter Product price">
+
+                    <p th:if="${#fields.hasErrors('price')}"
+                       th:errors="*{price}"
+                       class="text-danger small mt-1">
+                    </p>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Product trend</label>
+
+                    <input type="checkbox"
+                           th:field="*{trend}">
+
+                    <p th:if="${#fields.hasErrors('trend')}"
+                       th:errors="*{trend}"
+                       class="text-danger small mt-1">
+                    </p>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Product best seller</label>
+
+                    <input type="checkbox"
+                           th:field="*{bestSeller}">
+
+                    <p th:if="${#fields.hasErrors('bestSeller')}"
+                       th:errors="*{bestSeller}"
+                       class="text-danger small mt-1">
+                    </p>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Product feature</label>
+
+                    <input type="checkbox"
+                           th:field="*{feature}">
+
+                    <p th:if="${#fields.hasErrors('feature')}"
+                       th:errors="*{feature}"
+                       class="text-danger small mt-1">
+                    </p>
+                </div>
+
+
+                <!-- Product Discount Price -->
+                <div class="form-group">
+                    <label>Product discount price</label>
+
+                    <input type="number"
+                           th:field="*{discountPrice}"
+                           class="form-control"
+                           placeholder="Enter Product discount price">
+
+                    <p th:if="${#fields.hasErrors('discountPrice')}"
+                       th:errors="*{discountPrice}"
+                       class="text-danger small mt-1">
+                    </p>
+                </div>
+
+
+                <!-- Product Description -->
+                <div class="form-group">
+                    <label>Product description</label>
+
+                    <textarea th:field="*{description}"
+                              rows="5"
+                              class="form-control">
+                    </textarea>
+
+                    <p th:if="${#fields.hasErrors('description')}"
+                       th:errors="*{description}"
+                       class="text-danger small mt-1">
+                    </p>
+                </div>
+
+
+                <!-- Product Short Description -->
+                <div class="form-group">
+                    <label>Product shortDescription</label>
+
+                    <textarea th:field="*{shortDescription}"
+                              rows="5"
+                              class="form-control">
+                    </textarea>
+
+                    <p th:if="${#fields.hasErrors('shortDescription')}"
+                       th:errors="*{shortDescription}"
+                       class="text-danger small mt-1">
+                    </p>
+                </div>
+
+
+                <!-- Product Specification -->
+                <div class="form-group">
+                    <label>Product specification</label>
+
+                    <textarea th:field="*{specification}"
+                              rows="5"
+                              class="form-control">
+                    </textarea>
+
+                    <p th:if="${#fields.hasErrors('specification')}"
+                       th:errors="*{specification}"
+                       class="text-danger small mt-1">
+                    </p>
+                </div>
+
+
+                <!-- Category -->
+                <div class="form-group">
+                    <label>Categories</label>
+
+                    <select th:field="*{categoryId}"
+                            class="form-control">
+
+                        <option value="">Select Category</option>
+
+                        <option th:each="category : ${categories}"
+                                th:value="${category.id}"
+                                th:text="${category.name}">
+                        </option>
+
+                    </select>
+
+                    <p th:if="${#fields.hasErrors('categoryId')}"
+                       th:errors="*{categoryId}"
+                       class="text-danger small mt-1">
+                    </p>
+                </div>
+
+
+                <!-- Brand -->
+                <div class="form-group">
+                    <label>Brand</label>
+
+                    <select th:field="*{brandId}"
+                            class="form-control">
+
+                        <option value="">Select Brand</option>
+
+                        <option th:each="brandItem : ${brand}"
+                                th:value="${brandItem.id}"
+                                th:text="${brandItem.name}">
+                        </option>
+
+                    </select>
+
+                    <p th:if="${#fields.hasErrors('brandId')}"
+                       th:errors="*{brandId}"
+                       class="text-danger small mt-1">
+                    </p>
+                </div>
+
+
+                <!-- Create Button -->
+                <button type="submit"
+                        class="btn btn-primary">
+                    Create
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</html>
+```

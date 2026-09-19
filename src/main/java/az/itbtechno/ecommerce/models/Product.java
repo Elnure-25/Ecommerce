@@ -27,8 +27,18 @@ public class Product {
     BigDecimal price;
     BigDecimal discountPrice;
 
-@ManyToOne
+    @Column(columnDefinition = "boolean default false")
+    boolean trend;
+    @Column(columnDefinition = "boolean default false")
+    boolean bestSeller;
+    @Column(columnDefinition = "boolean default false")
+    boolean feature;
+
+
+    @ManyToOne
     Brand brand;
+@ManyToOne
+    Category Category;
 
 
 

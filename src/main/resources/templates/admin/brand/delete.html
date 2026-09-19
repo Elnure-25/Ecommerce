@@ -18,7 +18,7 @@
 
         <div class="card-body">
 
-            <form th:action="@{/dashboard/category/delete/{id}(id=${categoryId})}"
+            <form th:action="@{/dashboard/brand/delete/{id}(id=${brandId})}"
                   method="post">
 
                 <div class="form-group">
@@ -44,7 +44,7 @@
                     </div>
 
                     <input type="text"
-                           th:value="${categoryUpdateDTO.name}"
+                           th:value="${brandUpdateDTO.name}"
                            class="form-control"
                            disabled>
 
@@ -55,7 +55,7 @@
                     Delete
                 </button>
 
-                <a th:href="@{/dashboard/category}"
+                <a th:href="@{/dashboard/brand}"
                    class="btn btn-secondary">
                     Cancel
                 </a>

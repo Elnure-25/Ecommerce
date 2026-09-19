@@ -8,30 +8,19 @@
 
     <div class="card shadow mb-4">
 
-        <!-- Cədvəlin üst hissəsi: Başlıq və Create düyməsi -->
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
+            <h6 class="m-0 font-weight-bold text-primary">Categories</h6>
 
-            <h6 class="m-0 font-weight-bold text-primary">
-                Categories
-            </h6>
-
-            <a th:href="@{/dashboard/category/create}"
-               class="btn btn-primary btn-sm">
-
-                <i class="fas fa-plus"></i>
-                Create Category
-
+            <a th:href="@{/dashboard/brand/create}" class="btn btn-primary btn-sm">
+                <i class="fas fa-plus"></i> Create Category
             </a>
-
         </div>
 
         <div class="card-body">
 
             <div class="table-responsive">
 
-                <table class="table table-bordered"
-                       width="100%"
-                       cellspacing="0">
+                <table class="table table-bordered" width="100%" cellspacing="0">
 
                     <thead>
                     <tr>
@@ -43,24 +32,22 @@
 
                     <tbody>
 
-                    <tr th:each="category, iterStat : ${categories}">
+                    <tr th:each="brand, iterStat : ${brands}">
 
-                        <td th:text="${iterStat.count}">
-                            1
-                        </td>
+                        <td th:text="${iterStat.count}">1</td>
 
-                        <td th:text="${category.name}">
+                        <td th:text="${brand.name}">
                             Category Name
                         </td>
 
                         <td>
 
-                            <a th:href="@{/dashboard/category/update/{id}(id=${category.id})}"
+                            <a th:href="@{/dashboard/brand/update/{id}(id=${brand.id})}"
                                class="btn btn-sm btn-warning">
                                 Update
                             </a>
 
-                            <a th:href="@{/dashboard/category/delete/{id}(id=${category.id})}"
+                            <a th:href="@{/dashboard/brand/delete/{id}(id=${brand.id})}"
                                class="btn btn-sm btn-danger">
                                 Delete
                             </a>

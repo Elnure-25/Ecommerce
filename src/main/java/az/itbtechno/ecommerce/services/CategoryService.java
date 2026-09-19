@@ -1,13 +1,11 @@
 package az.itbtechno.ecommerce.services;
 
-import az.itbtechno.ecommerce.dto.category.CategoryCreateDTO;
-import az.itbtechno.ecommerce.dto.category.CategoryDashboardDTO;
-import az.itbtechno.ecommerce.dto.category.CategoryHomeDTO;
-import az.itbtechno.ecommerce.dto.category.CategoryUpdateDTO;
+import az.itbtechno.ecommerce.dto.category.*;
 
 import java.util.List;
 
 public interface CategoryService {
+
     List<CategoryHomeDTO> categoryList();
 
     List<CategoryDashboardDTO> getDashboardCategories();
@@ -16,7 +14,9 @@ public interface CategoryService {
 
     CategoryUpdateDTO getUpdatedCategory(Long id);
 
-    void UpdatedCategory(Long id,CategoryUpdateDTO categoryUpdateDTO);
+    void UpdatedCategory(Long id, CategoryUpdateDTO categoryUpdateDTO);
 
     void deleteCategory(Long id);
+
+    List<CategoryDTO> getCategoryList();
 }

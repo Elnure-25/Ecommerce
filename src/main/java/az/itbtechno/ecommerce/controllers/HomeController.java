@@ -13,14 +13,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class HomeController {
 
-    private final CategoryService categoryService;
+    private final CategoryService CategoryService;
 
     @GetMapping("/")
     public String index(Model model) {
 
-        List<CategoryHomeDTO> categoryList = categoryService.categoryList();
+        List<CategoryHomeDTO> CategoryList = CategoryService.categoryList();
 
-        model.addAttribute("categories", categoryList);
+        model.addAttribute("categories", CategoryList);
 
         return "index.html";
     }
