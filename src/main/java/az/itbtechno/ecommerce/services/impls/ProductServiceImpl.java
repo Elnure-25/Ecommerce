@@ -1,9 +1,6 @@
 package az.itbtechno.ecommerce.services.impls;
 
-import az.itbtechno.ecommerce.dto.product.ProductCreateDTO;
-import az.itbtechno.ecommerce.dto.product.ProductDashboardDTO;
-import az.itbtechno.ecommerce.dto.product.ProductHotTrendDTO;
-import az.itbtechno.ecommerce.dto.product.ProductUpdateDTO;
+import az.itbtechno.ecommerce.dto.product.*;
 import az.itbtechno.ecommerce.models.Brand;
 import az.itbtechno.ecommerce.models.Category;
 import az.itbtechno.ecommerce.models.Product;
@@ -147,6 +144,39 @@ public class ProductServiceImpl implements ProductService {
        List<Product>products = productRepository.findByTrendTrueOrderById();
 
        List<ProductHotTrendDTO> productHotTrendDTOList=products.stream().map(product -> modelMapper.map(product,ProductHotTrendDTO.class)).toList();
-       return List.of();
+        return productHotTrendDTOList;
+    }
+    @Override
+    public List<ProductHotTrendDTO> getBestSellers() {
+
+        List<Product> products = productRepository.findByBestSellerTrueOrderById();
+
+        return products.stream().map(product -> modelMapper.map(product, ProductHotTrendDTO.class)).toList();
+    }
+
+    @Override
+    public List<ProductHotTrendDTO> getFeatures() {
+
+        List<Product> products = productRepository.findByFeatureTrueOrderById();
+
+        return products.stream().map(product -> modelMapper.map(product, ProductHotTrendDTO.class)).toList();
+    }
+    @Override
+    public List<ProductDashboardDTO> getProducts() {
+
+        List<Product> products = productRepository.findAll();
+
+        return products.stream()
+                .map(product -> modelMapper.map(product, ProductDashboardDTO.class))
+                .toList();
+    }
+
+    @Override
+    public ProductDetailDTO getProductDetailById(Long id) {
+
+        Product findProduct = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+
+        return modelMapper.map(findProduct, ProductDetailDTO.class);
     }
 }

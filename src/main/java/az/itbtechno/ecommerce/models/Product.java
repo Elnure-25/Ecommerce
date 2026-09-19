@@ -29,7 +29,6 @@ public class Product {
 
     @Column(columnDefinition = "boolean default false")
     boolean trend;
-    @Column(columnDefinition = "boolean default false")
     boolean bestSeller;
     @Column(columnDefinition = "boolean default false")
     boolean feature;
@@ -37,7 +36,7 @@ public class Product {
 
     @ManyToOne
     Brand brand;
-@ManyToOne
+    @ManyToOne
     Category Category;
 
 
@@ -47,6 +46,7 @@ public class Product {
 
 @OneToMany(mappedBy = "product")
     List<Photo> photos = new ArrayList<>();
+
 
 
 

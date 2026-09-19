@@ -19,4 +19,6 @@ public interface CategoryService {
     void deleteCategory(Long id);
 
     List<CategoryDTO> getCategoryList();
+
+    List<CategoryDTO> getPinnedCategoryList();
 }

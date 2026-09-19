@@ -1,19 +1,20 @@
-package az.itbtechno.ecommerce.dto.category;
+package az.itbtechno.ecommerce.dto.product;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.hibernate.validator.constraints.Length;
+
+import java.math.BigDecimal;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CategoryCreateDTO {
-    @Length(min=3,max=10,message="Category name must contains minimum 3 maximum 10 characters.")
+public class ProductBestSellerDTO {
+    Long id;
     String name;
+    BigDecimal price;
 
-    boolean pinned;
 }

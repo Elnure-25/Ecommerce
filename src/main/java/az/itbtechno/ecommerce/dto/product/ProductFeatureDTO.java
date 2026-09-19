@@ -1,5 +1,4 @@
-package az.itbtechno.ecommerce.dto.category;
-
+package az.itbtechno.ecommerce.dto.product;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -7,11 +6,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
+import java.math.BigDecimal;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CategoryUpdateDTO {
+public class ProductFeatureDTO {
+
+    Long id;
     String name;
-    boolean pinned;
+    BigDecimal price;
 }

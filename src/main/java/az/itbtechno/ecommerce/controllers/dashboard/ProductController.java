@@ -1,5 +1,4 @@
-
-        package az.itbtechno.ecommerce.controllers.dashboard;
+package az.itbtechno.ecommerce.controllers.dashboard;
 
 import az.itbtechno.ecommerce.dto.brand.BrandDTO;
 import az.itbtechno.ecommerce.dto.category.CategoryDTO;
@@ -55,7 +54,7 @@ public class ProductController {
                 brandService.getBrandList();
 
         List<CategoryDTO> categoryList =
-                categoryService.getCategoryList();
+                categoryService.getPinnedCategoryList();
 
         model.addAttribute(
                 "productCreateDTO",
@@ -74,9 +73,7 @@ public class ProductController {
 
         return "admin/product/create.html";
     }
-
-
-    // CREATE PRODUCT - POST
+    
 
     @PostMapping("/create")
     public String create(
@@ -93,7 +90,7 @@ public class ProductController {
 
             model.addAttribute(
                     "categories",
-                    categoryService.getCategoryList()
+                    categoryService.getPinnedCategoryList()
             );
 
             return "admin/product/create.html";
@@ -145,8 +142,6 @@ public class ProductController {
     }
 
 
-    // UPDATE PRODUCT - POST
-
     @PostMapping("/update/{id}")
     public String update(
             @PathVariable Long id,
@@ -183,8 +178,6 @@ public class ProductController {
     }
 
 
-    // DELETE PRODUCT - GET
-
     @GetMapping("/delete/{id}")
     public String deletePage(
             @PathVariable Long id,
@@ -206,9 +199,6 @@ public class ProductController {
         return "admin/product/delete.html";
     }
 
-
-    // DELETE PRODUCT - POST
-
     @PostMapping("/delete/{id}")
     public String delete(
             @PathVariable Long id) {
@@ -218,4 +208,3 @@ public class ProductController {
         return "redirect:/dashboard/product";
     }
 }
-

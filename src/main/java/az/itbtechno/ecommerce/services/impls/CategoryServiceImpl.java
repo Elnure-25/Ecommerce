@@ -1,6 +1,10 @@
 package az.itbtechno.ecommerce.services.impls;
 
-import az.itbtechno.ecommerce.dto.category.*;
+import az.itbtechno.ecommerce.dto.category.CategoryCreateDTO;
+import az.itbtechno.ecommerce.dto.category.CategoryDTO;
+import az.itbtechno.ecommerce.dto.category.CategoryDashboardDTO;
+import az.itbtechno.ecommerce.dto.category.CategoryHomeDTO;
+import az.itbtechno.ecommerce.dto.category.CategoryUpdateDTO;
 import az.itbtechno.ecommerce.models.Category;
 import az.itbtechno.ecommerce.repostories.CategoryRepository;
 import az.itbtechno.ecommerce.services.CategoryService;
@@ -20,25 +24,34 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public List<CategoryHomeDTO> categoryList() {
 
-        List<Category> categories = categoryRepository.findAll();
+        List<Category> categories =
+                categoryRepository.findByPinnedTrueOrderById();
 
-        List<CategoryHomeDTO> categoryHomeDTOList = categories.stream().map(category -> modelMapper.map(category,CategoryHomeDTO.class)).toList();
-
-        return categoryHomeDTOList;
+        return categories.stream()
+                .map(category ->
+                        modelMapper.map(
+                                category,
+                                CategoryHomeDTO.class
+                        )
+                )
+                .toList();
     }
 
     @Override
     public List<CategoryDashboardDTO> getDashboardCategories() {
 
-        List<Category> categories = categoryRepository.findAll();
+        List<Category> categories =
+                categoryRepository.findAll();
 
         if (!categories.isEmpty()) {
 
             return categories.stream()
-                    .map(category -> modelMapper.map(
-                            category,
-                            CategoryDashboardDTO.class
-                    ))
+                    .map(category ->
+                            modelMapper.map(
+                                    category,
+                                    CategoryDashboardDTO.class
+                            )
+                    )
                     .toList();
         }
 
@@ -46,12 +59,17 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void createCategory(
-            CategoryCreateDTO categoryCreateDTO) {
+    public void createCategory(CategoryCreateDTO categoryCreateDTO) {
 
         Category category = new Category();
 
-        category.setName(categoryCreateDTO.getName());
+        category.setName(
+                categoryCreateDTO.getName()
+        );
+
+        category.setPinned(
+                categoryCreateDTO.isPinned()
+        );
 
         categoryRepository.save(category);
     }
@@ -82,6 +100,10 @@ public class CategoryServiceImpl implements CategoryService {
                 categoryUpdateDTO.getName()
         );
 
+        findCategory.setPinned(
+                categoryUpdateDTO.isPinned()
+        );
+
         categoryRepository.save(findCategory);
     }
 
@@ -93,10 +115,33 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<CategoryDTO> getCategoryList() {
-        List<Category> categories = categoryRepository.findAll();
 
-        List<CategoryDTO> categoryDTOS = categories.stream().map(category -> modelMapper.map(category,CategoryDTO.class)).toList();
+        List<Category> categories =
+                categoryRepository.findAll();
 
-        return categoryDTOS;
+        return categories.stream()
+                .map(category ->
+                        modelMapper.map(
+                                category,
+                                CategoryDTO.class
+                        )
+                )
+                .toList();
+    }
+
+    @Override
+    public List<CategoryDTO> getPinnedCategoryList() {
+
+        List<Category> categories =
+                categoryRepository.findByPinnedTrueOrderById();
+
+        return categories.stream()
+                .map(category ->
+                        modelMapper.map(
+                                category,
+                                CategoryDTO.class
+                        )
+                )
+                .toList();
     }
 }

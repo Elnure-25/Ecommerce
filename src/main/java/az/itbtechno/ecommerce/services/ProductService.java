@@ -1,9 +1,6 @@
 package az.itbtechno.ecommerce.services;
 
-import az.itbtechno.ecommerce.dto.product.ProductCreateDTO;
-import az.itbtechno.ecommerce.dto.product.ProductDashboardDTO;
-import az.itbtechno.ecommerce.dto.product.ProductHotTrendDTO;
-import az.itbtechno.ecommerce.dto.product.ProductUpdateDTO;
+import az.itbtechno.ecommerce.dto.product.*;
 import az.itbtechno.ecommerce.payloads.PaginationPayload;
 import jakarta.validation.Valid;
 
@@ -11,7 +8,8 @@ import java.util.List;
 
 public interface ProductService {
 
-    PaginationPayload<ProductDashboardDTO>getDashboardProducts(int size,int currentPage);
+    PaginationPayload<ProductDashboardDTO> getDashboardProducts(int size, int currentPage);
+
     void createProduct(@Valid ProductCreateDTO productCreateDTO);
 
     ProductUpdateDTO getUpdatedProduct(Long id);
@@ -20,5 +18,13 @@ public interface ProductService {
 
     void deleteProduct(Long id);
 
-    List<ProductHotTrendDTO>getHotTrends();
+    List<ProductHotTrendDTO> getHotTrends();
+
+    List<ProductHotTrendDTO> getBestSellers();
+
+    List<ProductHotTrendDTO> getFeatures();
+
+    List<ProductDashboardDTO> getProducts();
+
+    ProductDetailDTO getProductDetailById(Long id);
 }
