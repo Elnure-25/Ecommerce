@@ -7,13 +7,13 @@
 <div layout:fragment="content">
 
     <div class="page-title">
-        Update Category
+        Update Brand
     </div>
 
     <div class="card shadow">
 
         <div class="card-header">
-            Update Category
+            Update Brand
         </div>
 
         <div class="card-body">
@@ -24,12 +24,12 @@
 
                 <div class="form-group">
 
-                    <label>Category Name</label>
+                    <label>Brand Name</label>
 
                     <input type="text"
                            th:field="*{name}"
                            class="form-control"
-                           placeholder="Enter Category name">
+                           placeholder="Enter Brand name">
 
                     <p th:if="${#fields.hasErrors('name')}"
                        th:errors="*{name}"

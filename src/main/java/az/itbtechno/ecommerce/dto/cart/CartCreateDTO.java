@@ -1,5 +1,4 @@
-package az.itbtechno.ecommerce.dto.category;
-
+package az.itbtechno.ecommerce.dto.cart;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -7,14 +6,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CategoryDTO {
+public class CartCreateDTO {
     Long id;
-    String name;
+    int quantity=1;
 
-
+    public Object getProductId() {
+        return null;
+    }
 }

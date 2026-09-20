@@ -179,4 +179,16 @@ public class ProductServiceImpl implements ProductService {
 
         return modelMapper.map(findProduct, ProductDetailDTO.class);
     }
+
+    @Override
+    public Product findProductById(Object productId) {
+        return null;
+    }
+
+    @Override
+    public Product findProductById(Long productId) {
+        return productRepository.findById(productId).orElseThrow();
+    }
+
+
 }

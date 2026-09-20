@@ -27,32 +27,17 @@ public class CategoryServiceImpl implements CategoryService {
         List<Category> categories =
                 categoryRepository.findByPinnedTrueOrderById();
 
-        return categories.stream()
-                .map(category ->
-                        modelMapper.map(
-                                category,
-                                CategoryHomeDTO.class
-                        )
-                )
-                .toList();
+        return categories.stream().map(category -> modelMapper.map(category, CategoryHomeDTO.class)).toList();
     }
 
     @Override
     public List<CategoryDashboardDTO> getDashboardCategories() {
 
-        List<Category> categories =
-                categoryRepository.findAll();
+        List<Category> categories = categoryRepository.findAll();
 
         if (!categories.isEmpty()) {
 
-            return categories.stream()
-                    .map(category ->
-                            modelMapper.map(
-                                    category,
-                                    CategoryDashboardDTO.class
-                            )
-                    )
-                    .toList();
+            return categories.stream().map(category -> modelMapper.map(category, CategoryDashboardDTO.class)).toList();
         }
 
         return List.of();
@@ -63,13 +48,9 @@ public class CategoryServiceImpl implements CategoryService {
 
         Category category = new Category();
 
-        category.setName(
-                categoryCreateDTO.getName()
-        );
+        category.setName(categoryCreateDTO.getName());
 
-        category.setPinned(
-                categoryCreateDTO.isPinned()
-        );
+        category.setPinned(categoryCreateDTO.isPinned());
 
         categoryRepository.save(category);
     }
@@ -77,32 +58,19 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryUpdateDTO getUpdatedCategory(Long id) {
 
-        Category findCategory =
-                categoryRepository.findById(id)
-                        .orElseThrow();
+        Category findCategory = categoryRepository.findById(id).orElseThrow();
 
-        return modelMapper.map(
-                findCategory,
-                CategoryUpdateDTO.class
-        );
+        return modelMapper.map(findCategory, CategoryUpdateDTO.class);
     }
 
     @Override
-    public void UpdatedCategory(
-            Long id,
-            CategoryUpdateDTO categoryUpdateDTO) {
+    public void UpdatedCategory(Long id, CategoryUpdateDTO categoryUpdateDTO) {
 
-        Category findCategory =
-                categoryRepository.findById(id)
-                        .orElseThrow();
+        Category findCategory = categoryRepository.findById(id).orElseThrow();
 
-        findCategory.setName(
-                categoryUpdateDTO.getName()
-        );
+        findCategory.setName(categoryUpdateDTO.getName());
 
-        findCategory.setPinned(
-                categoryUpdateDTO.isPinned()
-        );
+        findCategory.setPinned(categoryUpdateDTO.isPinned());
 
         categoryRepository.save(findCategory);
     }
@@ -116,32 +84,16 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public List<CategoryDTO> getCategoryList() {
 
-        List<Category> categories =
-                categoryRepository.findAll();
+        List<Category> categories = categoryRepository.findAll();
 
-        return categories.stream()
-                .map(category ->
-                        modelMapper.map(
-                                category,
-                                CategoryDTO.class
-                        )
-                )
-                .toList();
+        return categories.stream().map(category -> modelMapper.map(category, CategoryDTO.class)).toList();
     }
 
     @Override
     public List<CategoryDTO> getPinnedCategoryList() {
 
-        List<Category> categories =
-                categoryRepository.findByPinnedTrueOrderById();
+        List<Category> categories = categoryRepository.findByPinnedTrueOrderById();
 
-        return categories.stream()
-                .map(category ->
-                        modelMapper.map(
-                                category,
-                                CategoryDTO.class
-                        )
-                )
-                .toList();
+        return categories.stream().map(category -> modelMapper.map(category, CategoryDTO.class)).toList();
     }
 }

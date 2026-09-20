@@ -7,8 +7,6 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 import tools.jackson.databind.ObjectMapper;
 
-import java.util.UUID;
-
 @Service
 @RequiredArgsConstructor
 public class EmailConsumer {
@@ -27,8 +25,10 @@ public class EmailConsumer {
         }
         ConfirmDTO confirmDTO = objectMapper.readValue(message, ConfirmDTO.class);
 
-        System.out.println("📨 Received message from Kafka: " + message);//
-emailService.sendConfirmationEmail(confirmDTO.getEmail(), confirmDTO.getToken());
+        System.out.println("📨 Received message from Kafka: " + message);
+
+
+        emailService.sendConfirmationEmail(confirmDTO.getEmail(), confirmDTO.getToken());
     }
 
     }

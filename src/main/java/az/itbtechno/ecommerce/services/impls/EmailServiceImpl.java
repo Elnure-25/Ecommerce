@@ -29,7 +29,8 @@ public class EmailServiceImpl implements EmailService {
 
             emailSender.send(message);
             return true;
-        }catch(Exception e){
+        }
+        catch(Exception e){
             System.out.println(e.getMessage());
             return false;
         }

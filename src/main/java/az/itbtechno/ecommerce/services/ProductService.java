@@ -1,6 +1,7 @@
 package az.itbtechno.ecommerce.services;
 
 import az.itbtechno.ecommerce.dto.product.*;
+import az.itbtechno.ecommerce.models.Product;
 import az.itbtechno.ecommerce.payloads.PaginationPayload;
 import jakarta.validation.Valid;
 
@@ -27,4 +28,8 @@ public interface ProductService {
     List<ProductDashboardDTO> getProducts();
 
     ProductDetailDTO getProductDetailById(Long id);
+
+    Product findProductById(Object productId);
+
+    Product findProductById(Long productId);
 }
