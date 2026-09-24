@@ -6,15 +6,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
+import java.math.BigDecimal;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CartCreateDTO {
-    Long id;
-    int quantity=1;
 
-    public Object getProductId() {
-        return null;
-    }
+    Long productId;
+
+    String staticProductName;
+
+    BigDecimal staticProductPrice;
+
+    int quantity = 1;
 }

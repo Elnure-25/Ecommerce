@@ -5,31 +5,33 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import java.math.BigDecimal;
 
 @Data
 @Entity
-@Table(name="carts")
+@Table(name = "carts")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Cart{
+public class Cart {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
     @ManyToOne
     Product product;
+
     @ManyToOne
     Color color;
+
     @ManyToOne
     Size size;
-
 
     @ManyToOne
     User user;
 
+    String staticProductName;
+
+    BigDecimal staticProductPrice;
+
     int quantity;
-
-
-
 }

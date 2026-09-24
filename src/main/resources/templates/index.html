@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zxx"
       layout:decorate="~{Layout}"
@@ -5,19 +6,28 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="description" content="Ashion Template">
     <meta name="keywords" content="Ashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Ashion | Template</title>
+
 </head>
 
 <body>
 
 <section layout:fragment="content">
 
-    <!-- Categories Section -->
+
+    <!-- =========================
+         Categories Section
+    ========================== -->
+
     <section class="categories">
 
         <div class="container-fluid">
@@ -31,7 +41,9 @@
 
                         <div class="categories__text">
 
-                            <h1>Women’s fashion</h1>
+                            <h1>
+                                Women’s fashion
+                            </h1>
 
                             <p>
                                 Sitamet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -55,7 +67,10 @@
     </section>
 
 
-    <!-- Product Section -->
+    <!-- =========================
+         Product Section
+    ========================== -->
+
     <section class="product spad">
 
         <div class="container">
@@ -65,7 +80,11 @@
                 <div class="col-lg-4 col-md-4">
 
                     <div class="section-title">
-                        <h4>New product</h4>
+
+                        <h4>
+                            New product
+                        </h4>
+
                     </div>
 
                 </div>
@@ -76,15 +95,21 @@
                     <ul class="filter__controls">
 
                         <!-- ALL -->
+
                         <li class="active"
                             data-filter="*">
+
                             All
+
                         </li>
 
+
                         <!-- PINNED CATEGORIES -->
+
                         <li th:each="category : ${categories}"
                             th:text="${category.name}"
                             th:attr="data-filter='.category-' + ${category.id}">
+
                         </li>
 
                     </ul>
@@ -94,11 +119,16 @@
             </div>
 
 
-            <!-- AISHON STATIC PRODUCTS -->
+            <!-- =========================
+                 STATIC AISHON PRODUCTS
+            ========================== -->
+
             <div class="row property__gallery">
 
 
-                <!-- 1. Buttons Tweed Blazer -->
+                <!-- =================================
+                     1. Buttons Tweed Blazer
+                ================================== -->
 
                 <div class="col-lg-3 col-md-4 col-sm-6 mix category-12">
 
@@ -111,25 +141,58 @@
                                 New
                             </div>
 
+
                             <ul class="product__hover">
 
                                 <li>
+
                                     <a href="/front/img/product/product-1.jpg"
                                        class="image-popup">
+
                                         <span class="arrow_expand"></span>
+
                                     </a>
+
                                 </li>
 
+
                                 <li>
+
                                     <a href="#">
+
                                         <span class="icon_heart_alt"></span>
+
                                     </a>
+
                                 </li>
 
+
                                 <li>
-                                    <a href="/shop/detail">
-                                        <span class="icon_bag_alt"></span>
-                                    </a>
+
+                                    <form th:action="@{/cart}"
+                                          method="post">
+
+                                        <input type="hidden"
+                                               name="staticProductName"
+                                               value="Buttons Tweed Blazer">
+
+                                        <input type="hidden"
+                                               name="staticProductPrice"
+                                               value="59">
+
+                                        <input type="hidden"
+                                               name="quantity"
+                                               value="1">
+
+                                        <button type="submit"
+                                                style="border: none; background: none; padding: 0;">
+
+                                            <span class="icon_bag_alt"></span>
+
+                                        </button>
+
+                                    </form>
+
                                 </li>
 
                             </ul>
@@ -140,21 +203,25 @@
                         <div class="product__item__text">
 
                             <h6>
-                                <a href="/shop/detail">
-                                    Buttons Tweed Blazer
-                                </a>
+                                Buttons Tweed Blazer
                             </h6>
 
+
                             <div class="rating">
+
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
+
                             </div>
 
+
                             <div class="product__price">
+
                                 $59
+
                             </div>
 
                         </div>
@@ -164,7 +231,9 @@
                 </div>
 
 
-                <!-- 2. Flowey striped skirt -->
+                <!-- =================================
+                     2. Flowey striped skirt
+                ================================== -->
 
                 <div class="col-lg-3 col-md-4 col-sm-6 mix category-4">
 
@@ -173,29 +242,63 @@
                         <div class="product__item__pic set-bg"
                              data-setbg="/front/img/product/product-2.jpg">
 
+
                             <div class="label new">
                                 New
                             </div>
 
+
                             <ul class="product__hover">
 
                                 <li>
+
                                     <a href="/front/img/product/product-2.jpg"
                                        class="image-popup">
+
                                         <span class="arrow_expand"></span>
+
                                     </a>
+
                                 </li>
 
+
                                 <li>
+
                                     <a href="#">
+
                                         <span class="icon_heart_alt"></span>
+
                                     </a>
+
                                 </li>
 
+
                                 <li>
-                                    <a href="/shop/detail">
-                                        <span class="icon_bag_alt"></span>
-                                    </a>
+
+                                    <form th:action="@{/cart}"
+                                          method="post">
+
+                                        <input type="hidden"
+                                               name="staticProductName"
+                                               value="Flowey striped skirt">
+
+                                        <input type="hidden"
+                                               name="staticProductPrice"
+                                               value="49">
+
+                                        <input type="hidden"
+                                               name="quantity"
+                                               value="1">
+
+                                        <button type="submit"
+                                                style="border: none; background: none; padding: 0;">
+
+                                            <span class="icon_bag_alt"></span>
+
+                                        </button>
+
+                                    </form>
+
                                 </li>
 
                             </ul>
@@ -206,21 +309,25 @@
                         <div class="product__item__text">
 
                             <h6>
-                                <a href="/shop/detail">
-                                    Flowey striped skirt
-                                </a>
+                                Flowey striped skirt
                             </h6>
 
+
                             <div class="rating">
+
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
+
                             </div>
 
+
                             <div class="product__price">
+
                                 $49
+
                             </div>
 
                         </div>
@@ -230,7 +337,9 @@
                 </div>
 
 
-                <!-- 3. Cotton T-Shirt -->
+                <!-- =================================
+                     3. Cotton T-Shirt
+                ================================== -->
 
                 <div class="col-lg-3 col-md-4 col-sm-6 mix category-15">
 
@@ -239,25 +348,58 @@
                         <div class="product__item__pic set-bg"
                              data-setbg="/front/img/product/product-3.jpg">
 
+
                             <ul class="product__hover">
 
                                 <li>
+
                                     <a href="/front/img/product/product-3.jpg"
                                        class="image-popup">
+
                                         <span class="arrow_expand"></span>
+
                                     </a>
+
                                 </li>
 
+
                                 <li>
+
                                     <a href="#">
+
                                         <span class="icon_heart_alt"></span>
+
                                     </a>
+
                                 </li>
 
+
                                 <li>
-                                    <a href="/shop/detail">
-                                        <span class="icon_bag_alt"></span>
-                                    </a>
+
+                                    <form th:action="@{/cart}"
+                                          method="post">
+
+                                        <input type="hidden"
+                                               name="staticProductName"
+                                               value="Cotton T-Shirt">
+
+                                        <input type="hidden"
+                                               name="staticProductPrice"
+                                               value="59">
+
+                                        <input type="hidden"
+                                               name="quantity"
+                                               value="1">
+
+                                        <button type="submit"
+                                                style="border: none; background: none; padding: 0;">
+
+                                            <span class="icon_bag_alt"></span>
+
+                                        </button>
+
+                                    </form>
+
                                 </li>
 
                             </ul>
@@ -268,21 +410,25 @@
                         <div class="product__item__text">
 
                             <h6>
-                                <a href="/shop/detail">
-                                    Cotton T-Shirt
-                                </a>
+                                Cotton T-Shirt
                             </h6>
 
+
                             <div class="rating">
+
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
+
                             </div>
 
+
                             <div class="product__price">
+
                                 $59
+
                             </div>
 
                         </div>
@@ -292,7 +438,9 @@
                 </div>
 
 
-                <!-- 4. Slim striped pocket shirt -->
+                <!-- =================================
+                     4. Slim striped pocket shirt
+                ================================== -->
 
                 <div class="col-lg-3 col-md-4 col-sm-6 mix category-1">
 
@@ -301,25 +449,58 @@
                         <div class="product__item__pic set-bg"
                              data-setbg="/front/img/product/product-4.jpg">
 
+
                             <ul class="product__hover">
 
                                 <li>
+
                                     <a href="/front/img/product/product-4.jpg"
                                        class="image-popup">
+
                                         <span class="arrow_expand"></span>
+
                                     </a>
+
                                 </li>
 
+
                                 <li>
+
                                     <a href="#">
+
                                         <span class="icon_heart_alt"></span>
+
                                     </a>
+
                                 </li>
 
+
                                 <li>
-                                    <a href="/shop/detail">
-                                        <span class="icon_bag_alt"></span>
-                                    </a>
+
+                                    <form th:action="@{/cart}"
+                                          method="post">
+
+                                        <input type="hidden"
+                                               name="staticProductName"
+                                               value="Slim striped pocket shirt">
+
+                                        <input type="hidden"
+                                               name="staticProductPrice"
+                                               value="59">
+
+                                        <input type="hidden"
+                                               name="quantity"
+                                               value="1">
+
+                                        <button type="submit"
+                                                style="border: none; background: none; padding: 0;">
+
+                                            <span class="icon_bag_alt"></span>
+
+                                        </button>
+
+                                    </form>
+
                                 </li>
 
                             </ul>
@@ -330,21 +511,25 @@
                         <div class="product__item__text">
 
                             <h6>
-                                <a href="/shop/detail">
-                                    Slim striped pocket shirt
-                                </a>
+                                Slim striped pocket shirt
                             </h6>
 
+
                             <div class="rating">
+
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
+
                             </div>
 
+
                             <div class="product__price">
+
                                 $59
+
                             </div>
 
                         </div>
@@ -354,7 +539,9 @@
                 </div>
 
 
-                <!-- 5. Fit micro corduroy shirt -->
+                <!-- =================================
+                     5. Fit micro corduroy shirt
+                ================================== -->
 
                 <div class="col-lg-3 col-md-4 col-sm-6 mix category-1">
 
@@ -363,25 +550,58 @@
                         <div class="product__item__pic set-bg"
                              data-setbg="/front/img/product/product-5.jpg">
 
+
                             <ul class="product__hover">
 
                                 <li>
+
                                     <a href="/front/img/product/product-5.jpg"
                                        class="image-popup">
+
                                         <span class="arrow_expand"></span>
+
                                     </a>
+
                                 </li>
 
+
                                 <li>
+
                                     <a href="#">
+
                                         <span class="icon_heart_alt"></span>
+
                                     </a>
+
                                 </li>
 
+
                                 <li>
-                                    <a href="/shop/detail">
-                                        <span class="icon_bag_alt"></span>
-                                    </a>
+
+                                    <form th:action="@{/cart}"
+                                          method="post">
+
+                                        <input type="hidden"
+                                               name="staticProductName"
+                                               value="Fit micro corduroy shirt">
+
+                                        <input type="hidden"
+                                               name="staticProductPrice"
+                                               value="59">
+
+                                        <input type="hidden"
+                                               name="quantity"
+                                               value="1">
+
+                                        <button type="submit"
+                                                style="border: none; background: none; padding: 0;">
+
+                                            <span class="icon_bag_alt"></span>
+
+                                        </button>
+
+                                    </form>
+
                                 </li>
 
                             </ul>
@@ -392,21 +612,25 @@
                         <div class="product__item__text">
 
                             <h6>
-                                <a href="/shop/detail">
-                                    Fit micro corduroy shirt
-                                </a>
+                                Fit micro corduroy shirt
                             </h6>
 
+
                             <div class="rating">
+
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
+
                             </div>
 
+
                             <div class="product__price">
+
                                 $59
+
                             </div>
 
                         </div>
@@ -416,7 +640,9 @@
                 </div>
 
 
-                <!-- 6. Tropical Kimono -->
+                <!-- =================================
+                     6. Tropical Kimono
+                ================================== -->
 
                 <div class="col-lg-3 col-md-4 col-sm-6 mix category-12">
 
@@ -425,25 +651,58 @@
                         <div class="product__item__pic set-bg"
                              data-setbg="/front/img/product/product-6.jpg">
 
+
                             <ul class="product__hover">
 
                                 <li>
+
                                     <a href="/front/img/product/product-6.jpg"
                                        class="image-popup">
+
                                         <span class="arrow_expand"></span>
+
                                     </a>
+
                                 </li>
 
+
                                 <li>
+
                                     <a href="#">
+
                                         <span class="icon_heart_alt"></span>
+
                                     </a>
+
                                 </li>
 
+
                                 <li>
-                                    <a href="/shop/detail">
-                                        <span class="icon_bag_alt"></span>
-                                    </a>
+
+                                    <form th:action="@{/cart}"
+                                          method="post">
+
+                                        <input type="hidden"
+                                               name="staticProductName"
+                                               value="Tropical Kimono">
+
+                                        <input type="hidden"
+                                               name="staticProductPrice"
+                                               value="49">
+
+                                        <input type="hidden"
+                                               name="quantity"
+                                               value="1">
+
+                                        <button type="submit"
+                                                style="border: none; background: none; padding: 0;">
+
+                                            <span class="icon_bag_alt"></span>
+
+                                        </button>
+
+                                    </form>
+
                                 </li>
 
                             </ul>
@@ -454,21 +713,25 @@
                         <div class="product__item__text">
 
                             <h6>
-                                <a href="/shop/detail">
-                                    Tropical Kimono
-                                </a>
+                                Tropical Kimono
                             </h6>
 
+
                             <div class="rating">
+
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
+
                             </div>
 
+
                             <div class="product__price">
+
                                 $49
+
                             </div>
 
                         </div>
@@ -478,7 +741,9 @@
                 </div>
 
 
-                <!-- 7. Contrasting sunglasses -->
+                <!-- =================================
+                     7. Contrasting sunglasses
+                ================================== -->
 
                 <div class="col-lg-3 col-md-4 col-sm-6 mix category-11">
 
@@ -487,25 +752,58 @@
                         <div class="product__item__pic set-bg"
                              data-setbg="/front/img/product/product-7.jpg">
 
+
                             <ul class="product__hover">
 
                                 <li>
+
                                     <a href="/front/img/product/product-7.jpg"
                                        class="image-popup">
+
                                         <span class="arrow_expand"></span>
+
                                     </a>
+
                                 </li>
 
+
                                 <li>
+
                                     <a href="#">
+
                                         <span class="icon_heart_alt"></span>
+
                                     </a>
+
                                 </li>
 
+
                                 <li>
-                                    <a href="/shop/detail">
-                                        <span class="icon_bag_alt"></span>
-                                    </a>
+
+                                    <form th:action="@{/cart}"
+                                          method="post">
+
+                                        <input type="hidden"
+                                               name="staticProductName"
+                                               value="Contrasting sunglasses">
+
+                                        <input type="hidden"
+                                               name="staticProductPrice"
+                                               value="59">
+
+                                        <input type="hidden"
+                                               name="quantity"
+                                               value="1">
+
+                                        <button type="submit"
+                                                style="border: none; background: none; padding: 0;">
+
+                                            <span class="icon_bag_alt"></span>
+
+                                        </button>
+
+                                    </form>
+
                                 </li>
 
                             </ul>
@@ -516,21 +814,25 @@
                         <div class="product__item__text">
 
                             <h6>
-                                <a href="/shop/detail">
-                                    Contrasting sunglasses
-                                </a>
+                                Contrasting sunglasses
                             </h6>
 
+
                             <div class="rating">
+
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
+
                             </div>
 
+
                             <div class="product__price">
+
                                 $59
+
                             </div>
 
                         </div>
@@ -540,7 +842,9 @@
                 </div>
 
 
-                <!-- 8. Water resistant backpack -->
+                <!-- =================================
+                     8. Water resistant backpack
+                ================================== -->
 
                 <div class="col-lg-3 col-md-4 col-sm-6 mix category-10">
 
@@ -549,25 +853,58 @@
                         <div class="product__item__pic set-bg"
                              data-setbg="/front/img/product/product-8.jpg">
 
+
                             <ul class="product__hover">
 
                                 <li>
+
                                     <a href="/front/img/product/product-8.jpg"
                                        class="image-popup">
+
                                         <span class="arrow_expand"></span>
+
                                     </a>
+
                                 </li>
 
+
                                 <li>
+
                                     <a href="#">
+
                                         <span class="icon_heart_alt"></span>
+
                                     </a>
+
                                 </li>
 
+
                                 <li>
-                                    <a href="/shop/detail">
-                                        <span class="icon_bag_alt"></span>
-                                    </a>
+
+                                    <form th:action="@{/cart}"
+                                          method="post">
+
+                                        <input type="hidden"
+                                               name="staticProductName"
+                                               value="Water resistant backpack">
+
+                                        <input type="hidden"
+                                               name="staticProductPrice"
+                                               value="49">
+
+                                        <input type="hidden"
+                                               name="quantity"
+                                               value="1">
+
+                                        <button type="submit"
+                                                style="border: none; background: none; padding: 0;">
+
+                                            <span class="icon_bag_alt"></span>
+
+                                        </button>
+
+                                    </form>
+
                                 </li>
 
                             </ul>
@@ -578,21 +915,25 @@
                         <div class="product__item__text">
 
                             <h6>
-                                <a href="/shop/detail">
-                                    Water resistant backpack
-                                </a>
+                                Water resistant backpack
                             </h6>
 
+
                             <div class="rating">
+
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
+
                             </div>
 
+
                             <div class="product__price">
+
                                 $49
+
                             </div>
 
                         </div>
@@ -601,6 +942,7 @@
 
                 </div>
 
+
             </div>
 
         </div>
@@ -608,7 +950,9 @@
     </section>
 
 
-    <!-- Banner Section -->
+    <!-- =========================
+         Banner Section
+    ========================== -->
 
     <section class="banner set-bg"
              data-setbg="/front/img/banner/banner-1.jpg">
@@ -621,26 +965,6 @@
 
                     <div class="banner__slider owl-carousel">
 
-                        <div class="banner__item">
-
-                            <div class="banner__text">
-
-                                <span>
-                                    The Chloe Collection
-                                </span>
-
-                                <h1>
-                                    The Project Jacket
-                                </h1>
-
-                                <a href="#">
-                                    Shop now
-                                </a>
-
-                            </div>
-
-                        </div>
-
 
                         <div class="banner__item">
 
@@ -682,6 +1006,28 @@
                             </div>
 
                         </div>
+
+
+                        <div class="banner__item">
+
+                            <div class="banner__text">
+
+                                <span>
+                                    The Chloe Collection
+                                </span>
+
+                                <h1>
+                                    The Project Jacket
+                                </h1>
+
+                                <a href="#">
+                                    Shop now
+                                </a>
+
+                            </div>
+
+                        </div>
+
 
                     </div>
 
@@ -694,7 +1040,9 @@
     </section>
 
 
-    <!-- Trend Section -->
+    <!-- =========================
+         Trend Section
+    ========================== -->
 
     <section class="trend spad">
 
@@ -721,6 +1069,7 @@
                         <div th:each="product : ${hotTrendProducts}"
                              class="trend__item">
 
+
                             <div class="trend__item__pic">
 
                                 <img src="/front/img/trend/ht-1.jpg"
@@ -734,6 +1083,7 @@
                                 <h6 th:text="${product.name}">
                                     Product Name
                                 </h6>
+
 
                                 <div class="rating">
 
@@ -749,6 +1099,7 @@
                                 <div class="product__price">
 
                                     $
+
                                     <span th:text="${product.price}">
                                         0.0
                                     </span>
@@ -782,6 +1133,7 @@
                         <div th:each="product : ${bestSellerProducts}"
                              class="trend__item">
 
+
                             <div class="trend__item__pic">
 
                                 <img src="/front/img/trend/bs-1.jpg"
@@ -795,6 +1147,7 @@
                                 <h6 th:text="${product.name}">
                                     Product Name
                                 </h6>
+
 
                                 <div class="rating">
 
@@ -810,6 +1163,7 @@
                                 <div class="product__price">
 
                                     $
+
                                     <span th:text="${product.price}">
                                         0.0
                                     </span>
@@ -843,6 +1197,7 @@
                         <div th:each="product : ${featureProducts}"
                              class="trend__item">
 
+
                             <div class="trend__item__pic">
 
                                 <img src="/front/img/trend/f-1.jpg"
@@ -856,6 +1211,7 @@
                                 <h6 th:text="${product.name}">
                                     Product Name
                                 </h6>
+
 
                                 <div class="rating">
 
@@ -871,6 +1227,7 @@
                                 <div class="product__price">
 
                                     $
+
                                     <span th:text="${product.price}">
                                         0.0
                                     </span>
@@ -885,6 +1242,7 @@
 
                 </div>
 
+
             </div>
 
         </div>
@@ -892,13 +1250,16 @@
     </section>
 
 
-    <!-- Discount Section -->
+    <!-- =========================
+         Discount Section
+    ========================== -->
 
     <section class="discount">
 
         <div class="container">
 
             <div class="row">
+
 
                 <div class="col-lg-6 p-0">
 
@@ -927,7 +1288,10 @@
                             </h2>
 
                             <h5>
-                                <span>Sale</span> 50%
+                                <span>
+                                    Sale
+                                </span>
+                                50%
                             </h5>
 
                         </div>
@@ -935,6 +1299,7 @@
 
                         <div class="discount__countdown"
                              id="countdown-time">
+
 
                             <div class="countdown__item">
 
@@ -987,6 +1352,7 @@
 
                             </div>
 
+
                         </div>
 
 
@@ -1005,13 +1371,16 @@
     </section>
 
 
-    <!-- Services Section -->
+    <!-- =========================
+         Services Section
+    ========================== -->
 
     <section class="services spad">
 
         <div class="container">
 
             <div class="row">
+
 
                 <div class="col-lg-3 col-md-4 col-sm-6">
 
@@ -1088,11 +1457,13 @@
 
                 </div>
 
+
             </div>
 
         </div>
 
     </section>
+
 
 </section>
 

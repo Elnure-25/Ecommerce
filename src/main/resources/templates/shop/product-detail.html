@@ -1,59 +1,22 @@
 <!DOCTYPE html>
 <html lang="zxx"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf"
       layout:decorate="~{Layout}">
 
 <head>
 
     <meta charset="UTF-8">
 
-    <meta name="description" content="Ashion Product Detail">
-    <meta name="keywords" content="Ashion, product, ecommerce">
+    <meta name="description" content="Ashion Shop Product Detail">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Ashion, shop, product, ecommerce">
 
-    <meta http-equiv="X-UA-Compatible"
-          content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ashion | Product Detail</title>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet"
-          th:href="@{/front/css/bootstrap.min.css}">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-          th:href="@{/front/css/font-awesome.min.css}">
-
-    <!-- Elegant Icons -->
-    <link rel="stylesheet"
-          th:href="@{/front/css/elegant-icons.css}">
-
-    <!-- Magnific Popup -->
-    <link rel="stylesheet"
-          th:href="@{/front/css/magnific-popup.css}">
-
-    <!-- Nice Select -->
-    <link rel="stylesheet"
-          th:href="@{/front/css/nice-select.css}">
-
-    <!-- Owl Carousel -->
-    <link rel="stylesheet"
-          th:href="@{/front/css/owl.carousel.min.css}">
-
-    <!-- Slick Nav -->
-    <link rel="stylesheet"
-          th:href="@{/front/css/slicknav.min.css}">
-
-    <!-- Main CSS -->
-    <link rel="stylesheet"
-          th:href="@{/front/css/style.css}">
+    <title th:text="${product.name} + ' | Ashion'">
+        Product Detail
+    </title>
 
 </head>
 
@@ -61,10 +24,7 @@
 
 <div layout:fragment="content">
 
-    <!-- ===================================================== -->
-    <!-- BREADCRUMB -->
-    <!-- ===================================================== -->
-
+    <!-- Breadcrumb -->
     <div class="breadcrumb-option">
 
         <div class="container">
@@ -84,7 +44,7 @@
                             Shop
                         </a>
 
-                        <span>
+                        <span th:text="${product.name}">
                             Product
                         </span>
 
@@ -97,117 +57,47 @@
         </div>
 
     </div>
+    <!-- Breadcrumb End -->
 
 
-    <!-- ===================================================== -->
-    <!-- PRODUCT DETAILS -->
-    <!-- ===================================================== -->
-
+    <!-- Product Details -->
     <section class="product-details spad">
 
         <div class="container">
 
             <div class="row">
 
-                <!-- ================================================= -->
-                <!-- PRODUCT IMAGE -->
-                <!-- ================================================= -->
-
-                <div class="col-lg-6 col-md-6">
+                <!-- Product Image -->
+                <div class="col-lg-6">
 
                     <div class="product__details__pic">
 
-                        <!-- Thumbnails -->
+                        <div class="product__details__pic__item">
 
-                        <div class="product__details__pic__left product__thumb nice-scroll">
-
-                            <a class="pt active"
-                               href="#product-1">
-
-                                <img th:src="@{/front/img/product/details/thumb-1.jpg}"
-                                     alt="Product">
-
-                            </a>
-
-                            <a class="pt"
-                               href="#product-2">
-
-                                <img th:src="@{/front/img/product/details/thumb-2.jpg}"
-                                     alt="Product">
-
-                            </a>
-
-                            <a class="pt"
-                               href="#product-3">
-
-                                <img th:src="@{/front/img/product/details/thumb-3.jpg}"
-                                     alt="Product">
-
-                            </a>
-
-                            <a class="pt"
-                               href="#product-4">
-
-                                <img th:src="@{/front/img/product/details/thumb-4.jpg}"
-                                     alt="Product">
-
-                            </a>
-
-                        </div>
-
-
-                        <!-- Main Images -->
-
-                        <div class="product__details__slider__content">
-
-                            <div class="product__details__pic__slider owl-carousel">
-
-                                <img data-hash="product-1"
-                                     class="product__big__img"
-                                     th:src="@{/front/img/product/details/product-1.jpg}"
-                                     alt="Product">
-
-                                <img data-hash="product-2"
-                                     class="product__big__img"
-                                     th:src="@{/front/img/product/details/product-2.jpg}"
-                                     alt="Product">
-
-                                <img data-hash="product-3"
-                                     class="product__big__img"
-                                     th:src="@{/front/img/product/details/product-3.jpg}"
-                                     alt="Product">
-
-                                <img data-hash="product-4"
-                                     class="product__big__img"
-                                     th:src="@{/front/img/product/details/product-4.jpg}"
-                                     alt="Product">
-
-                            </div>
+                            <img class="product__details__pic__item--large"
+                                 src="/front/img/product/product-1.jpg"
+                                 th:alt="${product.name}">
 
                         </div>
 
                     </div>
 
                 </div>
+                <!-- Product Image End -->
 
 
-                <!-- ================================================= -->
-                <!-- PRODUCT INFORMATION -->
-                <!-- ================================================= -->
-
-                <div class="col-lg-6 col-md-6">
+                <!-- Product Information -->
+                <div class="col-lg-6">
 
                     <div class="product__details__text">
 
                         <!-- Product Name -->
-
-                        <h3>
-                            T-shirt Contrast Pocket
+                        <h3 th:text="${product.name}">
+                            Product Name
                         </h3>
 
 
                         <!-- Rating -->
-
                         <div class="rating">
 
                             <i class="fa fa-star"></i>
@@ -216,113 +106,124 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
 
-                            <span>
-                                ( 138 reviews )
-                            </span>
-
                         </div>
 
 
                         <!-- Price -->
-
                         <div class="product__details__price">
 
-                            $ 75.0
+                            <!-- Discount Price -->
+                            <span th:if="${product.discountPrice != null
+                                    and product.discountPrice.compareTo(T(java.math.BigDecimal).ZERO) > 0}">
 
-                            <span style="margin-left: 10px;">
+                                $
+                                <span th:text="${product.discountPrice}">
+                                    0.00
+                                </span>
 
-                                <del>
-                                    $ 83.0
-                                </del>
+                            </span>
+
+
+                            <!-- Normal Price -->
+                            <span th:if="${product.discountPrice == null
+                                    or product.discountPrice.compareTo(T(java.math.BigDecimal).ZERO) <= 0}">
+
+                                $
+                                <span th:text="${product.price}">
+                                    0.00
+                                </span>
 
                             </span>
 
                         </div>
 
 
-                        <!-- Short Description -->
-
-                        <p>
-                            Seamlessly empower fully researched growth strategies
-                            and interoperable internal or organic sources.
+                        <!-- Description -->
+                        <p th:text="${product.description}">
+                            Product description
                         </p>
 
 
-                        <!-- ================================================= -->
-                        <!-- PRODUCT BUTTON -->
-                        <!-- ================================================= -->
+                        <!-- Add To Cart -->
+                        <form th:action="@{/cart}"
+                              method="post">
 
-                        <div class="product__details__button">
+                            <!-- Product ID -->
+                            <input type="hidden"
+                                   name="productId"
+                                   th:value="${product.id}">
 
-                            <!-- Quantity -->
 
-                            <div class="quantity">
+                            <div class="product__details__button">
 
-                                <span>
-                                    Quantity:
-                                </span>
+                                <!-- Quantity -->
+                                <div class="quantity">
 
-                                <div class="pro-qty">
+                                    <span>
+                                        Quantity:
+                                    </span>
 
-                                    <input type="text"
-                                           value="1">
+                                    <div class="pro-qty">
+
+                                        <input type="number"
+                                               name="quantity"
+                                               value="1"
+                                               min="1">
+
+                                    </div>
 
                                 </div>
 
+
+                                <!-- Add To Cart Button -->
+                                <button type="submit"
+                                        class="cart-btn"
+                                        style="border: none;">
+
+                                    <span class="icon_bag_alt"></span>
+
+                                    Add to cart
+
+                                </button>
+
+
+                                <!-- Wishlist / Compare -->
+                                <ul>
+
+                                    <li>
+
+                                        <a href="#">
+
+                                            <span class="icon_heart_alt"></span>
+
+                                        </a>
+
+                                    </li>
+
+                                    <li>
+
+                                        <a href="#">
+
+                                            <span class="icon_adjust-horiz"></span>
+
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+
                             </div>
 
-
-                            <!-- Add To Cart -->
-
-                            <a href="#"
-                               class="cart-btn">
-
-                                <span class="icon_bag_alt"></span>
-
-                                Add to cart
-
-                            </a>
+                        </form>
+                        <!-- Add To Cart End -->
 
 
-                            <!-- Wishlist -->
-
-                            <ul>
-
-                                <li>
-
-                                    <a href="#">
-
-                                        <span class="icon_heart_alt"></span>
-
-                                    </a>
-
-                                </li>
-
-                                <li>
-
-                                    <a href="#">
-
-                                        <span class="icon_adjust-horiz"></span>
-
-                                    </a>
-
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-
-                        <!-- ================================================= -->
-                        <!-- PRODUCT INFO -->
-                        <!-- ================================================= -->
-
+                        <!-- Product Information -->
                         <div class="product__details__widget">
 
                             <ul>
 
                                 <!-- Availability -->
-
                                 <li>
 
                                     <span>
@@ -331,8 +232,17 @@
 
                                     <div class="stock__checkbox">
 
-                                        <label>
+                                        <label for="stockin">
+
                                             In Stock
+
+                                            <input type="checkbox"
+                                                   id="stockin"
+                                                   checked
+                                                   disabled>
+
+                                            <span class="checkmark"></span>
+
                                         </label>
 
                                     </div>
@@ -340,53 +250,7 @@
                                 </li>
 
 
-                                <!-- Quantity -->
-
-                                <li>
-
-                                    <span>
-                                        Quantity:
-                                    </span>
-
-                                    <p>
-                                        10
-                                    </p>
-
-                                </li>
-
-
-                                <!-- Brand -->
-
-                                <li>
-
-                                    <span>
-                                        Brand:
-                                    </span>
-
-                                    <p>
-                                        Ashion
-                                    </p>
-
-                                </li>
-
-
-                                <!-- Category -->
-
-                                <li>
-
-                                    <span>
-                                        Category:
-                                    </span>
-
-                                    <p>
-                                        Clothing
-                                    </p>
-
-                                </li>
-
-
                                 <!-- Shipping -->
-
                                 <li>
 
                                     <span>
@@ -399,6 +263,20 @@
 
                                 </li>
 
+
+                                <!-- Product ID -->
+                                <li>
+
+                                    <span>
+                                        Product ID:
+                                    </span>
+
+                                    <p th:text="${product.id}">
+                                        0
+                                    </p>
+
+                                </li>
+
                             </ul>
 
                         </div>
@@ -406,19 +284,19 @@
                     </div>
 
                 </div>
+                <!-- Product Information End -->
+
+            </div>
 
 
-                <!-- ================================================= -->
-                <!-- DESCRIPTION -->
-                <!-- ================================================= -->
+            <!-- Product Description -->
+            <div class="row">
 
                 <div class="col-lg-12">
 
                     <div class="product__details__tab">
 
-
                         <!-- Tabs -->
-
                         <ul class="nav nav-tabs"
                             role="tablist">
 
@@ -449,30 +327,13 @@
 
                             </li>
 
-
-                            <li class="nav-item">
-
-                                <a class="nav-link"
-                                   data-toggle="tab"
-                                   href="#tabs-3"
-                                   role="tab">
-
-                                    Reviews ( 2 )
-
-                                </a>
-
-                            </li>
-
                         </ul>
 
 
                         <!-- Tab Content -->
-
                         <div class="tab-content">
 
-
-                            <!-- ================= DESCRIPTION ================= -->
-
+                            <!-- Description Tab -->
                             <div class="tab-pane active"
                                  id="tabs-1"
                                  role="tabpanel">
@@ -481,21 +342,14 @@
                                     Description
                                 </h6>
 
-                                <p>
-                                    Seamlessly empower fully researched growth
-                                    strategies and interoperable internal or
-                                    organic sources. Credibly innovate granular
-                                    internal or organic sources whereas high
-                                    standards in web-readiness. Credibly innovate
-                                    granular internal or organic sources whereas
-                                    high standards in web-readiness.
+                                <p th:text="${product.description}">
+                                    Product description
                                 </p>
 
                             </div>
 
 
-                            <!-- ================= SPECIFICATION ================= -->
-
+                            <!-- Specification Tab -->
                             <div class="tab-pane"
                                  id="tabs-2"
                                  role="tabpanel">
@@ -504,27 +358,8 @@
                                     Specification
                                 </h6>
 
-                                <p>
-                                    Lightweight fabric with a comfortable fit.
-                                    Designed for everyday use with high-quality
-                                    materials and modern styling.
-                                </p>
-
-                            </div>
-
-
-                            <!-- ================= REVIEWS ================= -->
-
-                            <div class="tab-pane"
-                                 id="tabs-3"
-                                 role="tabpanel">
-
-                                <h6>
-                                    Reviews ( 2 )
-                                </h6>
-
-                                <p>
-                                    No reviews available yet.
+                                <p th:text="${product.specification}">
+                                    Product specification
                                 </p>
 
                             </div>
@@ -540,33 +375,9 @@
         </div>
 
     </section>
+    <!-- Product Details End -->
 
 </div>
-
-
-<!-- ===================================================== -->
-<!-- JAVASCRIPT -->
-<!-- ===================================================== -->
-
-<script th:src="@{/front/js/jquery-3.3.1.min.js}"></script>
-
-<script th:src="@{/front/js/bootstrap.min.js}"></script>
-
-<script th:src="@{/front/js/jquery.magnific-popup.min.js}"></script>
-
-<script th:src="@{/front/js/jquery-ui.min.js}"></script>
-
-<script th:src="@{/front/js/mixitup.min.js}"></script>
-
-<script th:src="@{/front/js/jquery.countdown.min.js}"></script>
-
-<script th:src="@{/front/js/jquery.slicknav.js}"></script>
-
-<script th:src="@{/front/js/owl.carousel.min.js}"></script>
-
-<script th:src="@{/front/js/jquery.nicescroll.min.js}"></script>
-
-<script th:src="@{/front/js/main.js}"></script>
 
 </body>
 

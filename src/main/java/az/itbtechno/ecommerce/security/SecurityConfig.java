@@ -26,16 +26,17 @@ public class SecurityConfig {
 
         http.csrf(c -> c.disable())
                 .authorizeHttpRequests(auth -> {
-                    auth.requestMatchers("/dashboards/**").authenticated();
+                    auth.requestMatchers("/dashboard/**").authenticated();
                     auth.anyRequest().permitAll();
                 })
                 .formLogin(form -> form
                         .loginPage("/login")
                         .loginProcessingUrl("/login")
-                        .defaultSuccessUrl("/dashboard/category", true)
+                        .defaultSuccessUrl("/", false)
                         .permitAll()
                 );
 
         return http.build();
     }
 }
+
