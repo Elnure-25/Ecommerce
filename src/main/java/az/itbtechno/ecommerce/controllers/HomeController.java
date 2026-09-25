@@ -16,14 +16,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class HomeController {
 
-    private final CategoryService CategoryService;
+    private final CategoryService categoryService;
     private final ProductService productService;
 
     @GetMapping("/")
     public String index(Model model) {
 
-        List<CategoryHomeDTO> CategoryList =
-                CategoryService.categoryList();
+        List<CategoryHomeDTO> categoryList =
+                categoryService.categoryList();
 
         List<ProductDashboardDTO> products =
                 productService.getProducts();
@@ -37,14 +37,10 @@ public class HomeController {
         List<ProductHotTrendDTO> featureDTOList =
                 productService.getFeatures();
 
-        model.addAttribute("categories", CategoryList);
-
+        model.addAttribute("categories", categoryList);
         model.addAttribute("products", products);
-
         model.addAttribute("hotTrendProducts", hotTrendDTOList);
-
         model.addAttribute("bestSellerProducts", bestSellerDTOList);
-
         model.addAttribute("featureProducts", featureDTOList);
 
         return "index.html";
@@ -54,4 +50,6 @@ public class HomeController {
     public String contact() {
         return "contact.html";
     }
+
 }
+
